@@ -10,8 +10,6 @@ var usersRouter = require('./routes/users');
 var quizRouter = require('./routes/quiz');
 var resultsRouter = require('./routes/results');
 var selectionRouter = require('./routes/selection');
-
-
 var app = express();
 
 // view engine setup
