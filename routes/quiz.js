@@ -10,7 +10,6 @@ answerOptionsArray = []
 allOptions = []
 
 
-
 router.get('/', function (req, res, next) {
   let category = req.query.category
   quizSelection(category).then((data) => {
@@ -37,11 +36,21 @@ router.get('/', function (req, res, next) {
     console.log(questionsArray.length, questionsArray)
     console.log('all possible options', answerOptionsArray)
     console.log('correct answers', correctAnswerArray)
+
+    if (typeof localStorage === "undefined" || localStorage === null) {
+      var LocalStorage = require('node-localstorage').LocalStorage;
+      localStorage = new LocalStorage('./scratch');
+    }
+     
+    localStorage.setItem('key', correctAnswerArray);
+
+
+
     res.send(
       {
         question: questionsArray,
         options: answerOptionsArray,
-        correct: correctAnswerArray
+        // correct: correctAnswerArray
       }
 
     )
@@ -61,3 +70,5 @@ let quizSelection = async (category) => {
 }
 
 module.exports = router;
+
+
