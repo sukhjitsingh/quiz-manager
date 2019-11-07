@@ -3,11 +3,13 @@ var axios = require('axios')
 var router = express.Router();
 
 var shuffle = require('shuffle-array')
-
+// question and answer array parsed and stored into variables/
 questionsArray = []
 correctAnswerArray = []
 answerOptionsArray = []
 allOptions = []
+
+
 
 router.get('/', function (req, res, next) {
   let category = req.query.category
