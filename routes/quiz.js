@@ -10,36 +10,47 @@ answerOptionsArray = []
 allOptions = []
 
 
-
 router.get('/', function (req, res, next) {
   let category = req.query.category
   quizSelection(category).then((data) => {
+    let eachQuestion = ""
+    let eachCorrectAnswer = ""
+    let eachAnswerSelection = ""
+    questionsArray = []
+    correctAnswerArray = []
+    answerOptionsArray = []
+    allOptions = []
+
 
     for (let i = 0; i < data.length; i++) {
-      let eachQuestion = data[i].question
-      let eachCorrectAnswer = data[i].correct_answer
-      let eachAnswerSelection = data[i].incorrect_answers
+      eachQuestion = data[i].question
+      eachCorrectAnswer = data[i].correct_answer
+      eachAnswerSelection = data[i].incorrect_answers
       questionsArray.push(eachQuestion)
       correctAnswerArray.push(eachCorrectAnswer)
-
-      //spread and combine eachCorrectAnswers and eachAnswerSelection
       allOptions = [...eachAnswerSelection, eachCorrectAnswer]
-      //shuffle
       shuffle(allOptions)
-      //all possible options into one array
       answerOptionsArray.push(allOptions)
-
     }
+
     console.log(questionsArray.length, questionsArray)
     console.log('all possible options', answerOptionsArray)
     console.log('correct answers', correctAnswerArray)
+
+    if (typeof localStorage === "undefined" || localStorage === null) {
+      var LocalStorage = require('node-localstorage').LocalStorage;
+      localStorage = new LocalStorage('./scratch');
+    }
+     
+    localStorage.setItem('key', correctAnswerArray);
+
 
 
     res.send(
       {
         question: questionsArray,
         options: answerOptionsArray,
-        correct: correctAnswerArray
+        // correct: correctAnswerArray
       }
 
     )
@@ -59,3 +70,5 @@ let quizSelection = async (category) => {
 }
 
 module.exports = router;
+
+
