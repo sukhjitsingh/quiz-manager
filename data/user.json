@@ -1,0 +1,35 @@
+{
+    "user":
+    [
+        {
+            "name": "Sukhjit Singh",
+            "email": "sukhjit@dev.com",
+            "password": "password"
+        },
+        {
+            "name": "Arsha Haridas",
+            "email": "arsha@dev.com",
+            "password": "password"
+        },
+        {
+            "name": "James Vongampai",
+            "email": "james@dev.com",
+            "password": "password"
+        },
+        {
+            "name": "Laukik Kathoke",
+            "email": "laukik@dev.com",
+            "password": "password"
+        },
+        {
+            "name": "James",
+            "email": "abc@dev.com",
+            "password": "James"
+        },
+        {
+            "name": "Zineb Ghali",
+            "email": "zineb@dev.com",
+            "password": "password"
+        }
+    ]
+}
