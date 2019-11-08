@@ -5,10 +5,10 @@ if (typeof localStorage === "undefined" || localStorage === null) {
   localStorage = new LocalStorage('./scratch');
 }
 
-var key = localStorage.getItem('key');
 let score;
-key = key.split(',')
 router.post('/', function (req, res, next) {
+  var key = localStorage.getItem('key');
+  key = key.split(',')
 
   score = 0;
   console.log("submitted answers", req.body)
