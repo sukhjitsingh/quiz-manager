@@ -1,10 +1,8 @@
-{
-    "user":
     [
         {
-            "name": "Sukhjit Singh",
+            "name": "Sukhjit",
             "email": "sukhjit@dev.com",
-            "password": "password"
+            "password": "sukhjit"
         },
         {
             "name": "Arsha Haridas",
@@ -32,4 +30,3 @@
             "password": "password"
         }
     ]
-}
